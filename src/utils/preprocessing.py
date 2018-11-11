@@ -1,5 +1,5 @@
 import re
-from utils.contractions import CONTRACTION_MAP
+from src.utils.contractions import CONTRACTION_MAP
 
 
 def remove_tags(text):
@@ -27,7 +27,7 @@ def expand_contractions(text, contraction_mapping=CONTRACTION_MAP):
 
 def remove_punct(text):
     punct = re.compile(r'[^\w ]')
-    text = punct.sub("", text)
+    text = punct.sub(" ", text)
     return text
 
 def preprocess_text(text, lower=True, tags=True, contractions=True, strip_punct=True):
@@ -39,5 +39,7 @@ def preprocess_text(text, lower=True, tags=True, contractions=True, strip_punct=
         text = expand_contractions(text)
     if strip_punct:
         text = remove_punct(text)
+
+    text = ' '.join(text.split())
 
     return text

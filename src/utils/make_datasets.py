@@ -14,7 +14,7 @@ def make_data_pickle(toy_dataset=False):
     paths = []
 
     for f in ['pos', 'neg']:
-        paths.extend(Path('.').glob('aclImdb/*/{}/*.txt'.format(f)))
+        paths.extend(Path('.').glob('aclImdb/train/{}/*.txt'.format(f)))
 
     record = namedtuple('record', ['doc', 'sentiment'])
     all_records = []

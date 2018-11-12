@@ -77,7 +77,6 @@ def train_model():
 
     for score, value in scores.items():
         print("{}: {}".format(score, value))
-    print(conf.ravel())
 
     return history, y_test, y_pred
 

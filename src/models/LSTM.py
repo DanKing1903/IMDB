@@ -28,6 +28,8 @@ def train_model():
     root = str(Path(__file__).resolve().parents[2])
     with Path(root+'/data/imdb.pickle').open('rb') as f:
         data = pickle.load(f)
+    data = data.drop_duplicates('doc')
+    data = data.dropna()
 
     # Load embeddings
     embed_lookup = {}
